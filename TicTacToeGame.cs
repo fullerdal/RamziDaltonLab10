@@ -200,6 +200,12 @@ namespace Lab10Starter
         {
             CurrentPlayer = (CurrentPlayer == Player.X) ? Player.O : Player.X;
         }
+
+        public void IncreaseScore(int x, int y)
+        {
+            scores[0] = scores[0] + x;
+            scores[1] = scores[1] + y;
+        }
     }
 
 
