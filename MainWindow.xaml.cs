@@ -68,6 +68,7 @@ namespace Lab10Starter
 
             if (gameOver)
             {
+                UpdateScore(victor);
                 CelebrateVictory(victor);
                 
             }
@@ -100,7 +101,33 @@ namespace Lab10Starter
             Tile21.Content = "";
             Tile22.Content = "";
         }
+        //uimplement scoring, so that when the game is over, the score is updated
+    
+        private void UpdateScore(Player victor)
+        {
+            if (victor == Player.X) 
+            {
+                ticTacToe.IncreaseScore(0, 1); 
+                XScoreLBL.Content = "X's Score: " + ticTacToe.XScore; 
+            }
+            else if (victor == Player.O)
+            {
+                ticTacToe.IncreaseScore(1, 0);
+                OScoreLBL.Content = "O's Score: " + ticTacToe.OScore;
+            }
+            else if (victor == Player.Nobody)
+            {
+                ticTacToe.IncreaseScore(0, 0);
 
+            }
+            else if (victor == Player.Both)
+            {
+                ticTacToe.IncreaseScore(1, 1);
+                XScoreLBL.Content = "X's Score: " + ticTacToe.XScore;
+                OScoreLBL.Content = "O's Score: " + ticTacToe.OScore;
+            }
+            
+        }
     }
 
 }
